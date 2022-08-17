@@ -9,33 +9,43 @@ import { Grid } from '@mui/material'
 
 export function Customers() {
 
-    const [users, setUsers] = useState([])
+    const [customers, setCustomers] = useState([])
 
-    console.log(users)
+    console.log(customers)
 
 
     useEffect(() => {
         axios.get('https://reqres.in/api/users')
             .then(response => {
                 const { data } = response.data
-                setUsers(data)
+                setCustomers(data)
 
             })
     }, [])
+
+    function handleRemoveCustomer(id) {
+        axios.delete(`https://reqres.in/api/users/${id}`)
+        .then(response => {
+            console.log(response)
+            const newCustomersState = customers.filter(customer => customer.id !== id)
+            setCustomers(newCustomersState)
+        })
+    }
 
     return (
         <div>
             <Grid container spacing={4}>
                 {
 
-                    users.map(user => (
-                        <Grid item xs={12} md={4}>
+                    customers.map(customer => (
+                        <Grid item xs={12} md={4} >
                             <CustomerCard
-                                key={user.id}
-                                name={user.first_name}
-                                lastname={user.last_name}
-                                email={user.email}
-                                avatar={user.avatar}
+                                id={customer.id}
+                                name={customer.first_name}
+                                lastname={customer.last_name}
+                                email={customer.email}
+                                avatar={customer.avatar}
+                                onRemoveCustomer={handleRemoveCustomer}
                             />
                         </Grid>
                     ))

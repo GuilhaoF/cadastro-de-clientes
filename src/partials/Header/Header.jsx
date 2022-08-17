@@ -62,7 +62,7 @@ export function Header() {
                         <ListItemIcon>
                             <GroupAddIcon/>
                         </ListItemIcon>
-                        <ListItemText>Cadastro de Clientes</ListItemText>
+                        <ListItemText>Lista de Clientes</ListItemText>
                     </ListItem>
                 </List>
             </Drawer>
