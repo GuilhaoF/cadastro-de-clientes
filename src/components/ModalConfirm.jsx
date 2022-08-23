@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export function ModalConfirm({open,onClose,onConfirm,title,message,}) {
+function ModalConfirm({open,onClose,onConfirm,title,message,}) {
  
 
   return (
@@ -38,3 +38,5 @@ export function ModalConfirm({open,onClose,onConfirm,title,message,}) {
     </>
   );
 }
+
+export default ModalConfirm

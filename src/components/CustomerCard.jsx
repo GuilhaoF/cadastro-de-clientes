@@ -9,9 +9,9 @@ import { red } from '@mui/material/colors';
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 
-import { ModalConfirm } from './ModalConfirm'
+import  ModalConfirm  from './ModalConfirm'
 
-export function CustomerCard({ id,name, lastname, avatar, email ,onRemoveCustomer}) {
+function CustomerCard({ id,name, lastname, avatar, email ,onRemoveCustomer}) {
 
 
   const [openModal, setOpenModal] = useState(false)
@@ -59,3 +59,5 @@ export function CustomerCard({ id,name, lastname, avatar, email ,onRemoveCustome
     </>
   );
 }
+
+export default CustomerCard

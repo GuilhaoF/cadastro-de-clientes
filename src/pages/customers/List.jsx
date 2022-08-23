@@ -1,13 +1,11 @@
 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { CustomerCard } from '../components/CustomerCard'
+import CustomerCard  from '../../components/CustomerCard'
 import { Grid } from '@mui/material'
 
 
-
-
-export function Customers() {
+function List() {
 
     const [customers, setCustomers] = useState([])
 
@@ -25,11 +23,11 @@ export function Customers() {
 
     function handleRemoveCustomer(id) {
         axios.delete(`https://reqres.in/api/users/${id}`)
-        .then(response => {
-            console.log(response)
-            const newCustomersState = customers.filter(customer => customer.id !== id)
-            setCustomers(newCustomersState)
-        })
+            .then(response => {
+                console.log(response)
+                const newCustomersState = customers.filter(customer => customer.id !== id)
+                setCustomers(newCustomersState)
+            })
     }
 
     return (
@@ -54,3 +52,5 @@ export function Customers() {
         </div>
     )
 }
+
+export default List
